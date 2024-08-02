@@ -1,0 +1,5 @@
+flask
+Flask-MySQLdb
+argon2-cffi
+Flask-Session
+python-dotenv
