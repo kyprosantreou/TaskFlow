@@ -1,0 +1,160 @@
+body {
+    height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    background-color: #efeaff;
+    /* background: linear-gradient(90deg, rgb(33, 25, 81) 0%, rgb(131, 111, 255) 50%, rgb(33, 25, 81) 105%); */
+    caret-color: black; 
+    margin-bottom: auto;
+}
+
+header {
+    padding: 25px;
+    background-color: rgb(47, 41, 82);
+    font-size: 25px;
+    height: 40px;
+    width: 100%;
+    padding-left: 0; 
+    position: fixed;
+    top: 0;
+    left: 0%;
+    display:flex;
+    justify-content: space-between; 
+  }
+
+.dark-mode {
+    background-color:#212124;
+    color: white;
+}
+
+#toggle-theme-btn {
+    background-color: rgb(64, 54, 121);
+    border: none;
+    cursor: pointer;
+    padding: 10px; 
+    font-size: 18px;
+    border-radius: 5px;
+    width: auto; 
+    margin-bottom: 10px; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+}
+  
+#toggle-theme-btn img {
+width: 40px;
+height: 40px;
+margin-right: 10px; 
+}
+
+#button-text:hover {
+    color: rgb(150, 233, 198);
+}
+
+h2{
+    text-decoration: underline;
+}
+
+#button-text {
+margin-left: 5px;
+color: white;
+font-size: 22px;
+font-family:'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center; 
+}
+
+.account-settings {
+    padding: 20px;
+    max-width: 400px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px; 
+    font-weight: 600;
+}
+
+.upload-button {
+    cursor: pointer;
+    color: #000000;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px; 
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px; 
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 4px ;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.delete-account,
+.submit {
+    background-color: #4ff7a3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.delete-account {
+    background-color: #ff4d4d;
+}
+
+.delete-account:hover {
+    background-color: #e60000;
+}
+
+.submit:hover {
+    background-color: #00ff15;
+}
+
+.form-group {
+    position: relative;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+#change-password {
+    width: calc(100% - 40px); 
+    padding-right: 50px;  
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-80%);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background-image: url('../Assets/eye.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border: none;
+    padding: 0;
+    outline: none; 
+}

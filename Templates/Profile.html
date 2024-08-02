@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Profile.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/SideBar.css') }}">
+</head>
+
+<header>
+    <button class="openbtn" onclick="openNav()">&#9776; </button>
+</header>
+
+<body>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../Templates/Profile.html" onclick="redirectToProfilePage()">
+        <img id="profile" src="../static/Assets/profile.png" alt=""> Profile
+    </a>    
+    <a href="#" onclick="redirectToHomePage()"><img id="home" src="{{ url_for('static', filename='Assets/home.png') }}" alt="Home"> Home</a>
+    <a href="../Templates/index.html" onclick="redirectToAboutPage()"><img id="info" src="{{ url_for('static', filename='Assets/info.png') }}" alt="Info"> About</a>
+    <button id="toggle-theme-btn" onclick="toggleDarkMode()" title="Toggle theme mode">
+        <img id="modeIcon" src="{{ url_for('static', filename='Assets/sun.svg') }}" alt="Dark Mode">
+        <span id="button-text">Dark Mode</span>
+    </button>
+</div>
+
+<div class="account-settings">
+    <h2>Account Settings:</h2>
+    <form id="account-settings-form">
+        <div class="form-group">
+            <label for="change-email">New Email:</label>
+            <input type="email" id="change-email" name="change-email" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="change-name">Change Name:</label>
+            <input type="text" id="change-name" name="change-name">
+        </div>
+        <div class="form-group">
+            <label for="change-surname">Change Surname:</label>
+            <input type="text" id="change-surname" name="change-surname">
+        </div>
+        <div class="form-group">
+            <label for="change-password">Change Password:</label>
+            <div class="password-wrapper">
+                <input type="password" id="change-password" name="change-password">
+                <button class="toggle-password" type="button" onclick="togglePasswordVisibility()"></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="change-username">Change Username:</label>
+            <input type="text" id="change-username" name="change-username">
+        </div>
+        <button type="button" class="delete-account" onclick="deleteAccount()">Delete Account</button>
+        <button type="button" class="submit" onclick="submitAccountSettings()">Submit</button>
+        <button id="downloadDataBtn">Download Data</button>
+
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='Js/bar.js') }}"></script>
+<script src="{{ url_for('static', filename='Js/darkmode.js') }}"></script>
+<script src="{{ url_for('static', filename='Js/emailValidation.js') }}"></script>
+<script>
+    function redirectToProfilePage() {
+        window.location.href = "../Templates/Profile.html";
+    }
+
+    function redirectToAboutPage() {
+        window.location.href = "../Templates/index.html";
+    }
+
+    function redirectToHomePage() {
+        window.location.href = "../Templates/home.html";
+    }
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("change-password");
+        var passwordToggle = document.querySelector(".toggle-password");
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordToggle.style.backgroundImage = "url('../static/Assets/eye-off.svg')";
+        } else {
+            passwordInput.type = "password";
+            passwordToggle.style.backgroundImage = "url('../static/Assets/eye.svg')";
+        }
+    }
+
+    function submitAccountSettings() {
+        var form = document.getElementById('account-settings-form');
+        var formData = new FormData(form);
+
+        fetch('/update_account', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Account settings updated successfully.');
+            } else {
+                alert('Error updating account settings.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function deleteAccount() {
+        fetch('/delete_account', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Account deleted successfully.');
+                window.location.href = '/';
+            } else {
+                alert('Error deleting account.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+<script>
+    document.getElementById('downloadDataBtn').addEventListener('click', function() {
+        fetch('/user_data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrf_token') // If you use CSRF protection
+            }
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            // Create a link element to trigger the download
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'user_data.xml';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch(error => console.error('Error downloading data:', error));
+    });
+
+    // Function to get the CSRF token from cookies (if used)
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+.sidebar {
+  height: 100%; 
+  width: 0;
+  position: fixed; 
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(64, 54, 121);
+  overflow-x: hidden;
+  padding-top: 60px; 
+  transition: 0.5s;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 10px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar a:hover {
+  color: rgb(150, 233, 198);
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color:rgb(47, 41, 82);
+  color: white;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+.openbtn:hover {
+  background-color: #4c4670;
+}
+
+#main {
+  transition: margin-left .5s; 
+  padding: 20px;
+}
+
+.sidebar a img {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 10px;
+    background-color: rgb(64, 54, 121);
+}
+
+#profile{
+  margin-top: 10px;
+  background-color: rgb(64, 54, 121);
+
+}
+/* @media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+} */

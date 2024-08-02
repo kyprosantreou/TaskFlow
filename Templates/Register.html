@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/register_style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <form action="{{ url_for('register') }}" method="post" onsubmit="return Validations()">            <h1>Register</h1>
+            <label for="Name">Name:</label><br>
+            <input type="text" id="Name" name="Name" placeholder="Enter your name" required><br>
+            <label for="Surname">Surname:</label><br>
+            <input type="text" id="Surname" name="Surname" placeholder="Enter your surname" required><br>
+            <label for="Username">Username:</label><br>
+            <input type="text" id="Username" name="Username" placeholder="Username" required><br>
+            <label for="Email">Email:</label><br>
+            <input type="text" id="Email" name="Email" placeholder="example@gmail.com" required><br>
+            <label for="password">Password:</label><br>
+            <div class="password-input">
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button class="toggle-password" type="button" onclick="togglePasswordVisibility()"></button>
+            </div>
+            <div class="repeat_password-input">
+                <label for="repeat_password">Repeat Password:</label><br>
+                <div class="password-input">
+                    <input type="password" id="repeat_password" name="repeat_password" placeholder="Repeat your password" required>
+                    <button class="toggle-repeat-password" type="button" onclick="toggleRepeatPasswordVisibility()"></button>
+                </div>
+            </div>
+
+            <div id="password-error" class="error-message" style="display: none;">Passwords do not match!</div>
+            <p id="validationMessage"></p>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='Js/password_toggle.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/emailValidation.js') }}"></script>
+    <script>
+        function Validations() {
+            if (validateEmail() && validatePasswords()) {
+                return true; 
+            } else {
+                return false;
+            }
+        }
+
+        function validatePasswords() {
+            var password = document.getElementById("password").value;
+            var repeatPassword = document.getElementById("repeat_password").value;
+
+            if (password !== repeatPassword) {
+                document.getElementById("password-error").style.display = "block";
+                return false; 
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/login_style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <form action="" method="post" onsubmit="return validateEmail()">
+            <h1>Login to your account.</h1>
+            <label for="Email">Email: </label><br>
+            <input type="text" id="Email" name="Email" placeholder="example@gmail.com" required><br>
+            <label for="password">Password:</label><br>
+            <div class="password-input">
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button class="toggle-password" type="button" onclick="togglePasswordVisibility()"></button>
+            </div>
+            <!-- <div class="rememberMe-forgotPassword">
+                <div class="rememberMe-checkbox">
+                    <input type="checkbox" id="rememberMe" name="rememberMe" value="">
+                    <label for="rememberMe"> Remember me</label>
+                </div>
+                <a id="forgot-password" href="#">Forgot Password?</a>
+            </div> -->
+
+            <p id="validationMessage"></p>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='Js/password_toggle.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/emailValidation.js') }}"></script>
+</body>
+</html>

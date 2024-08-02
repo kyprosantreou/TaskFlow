@@ -1,0 +1,99 @@
+body {
+  display: block;
+  justify-content: center;
+  padding: 40px; 
+  background: white;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+header {
+  padding: 25px;
+  background-color: rgb(47, 41, 82);
+  font-size: 25px;
+  height: 40px;
+  width: 100%;
+  padding-left: 0; 
+  position: fixed;
+  top: 0;
+  left: 0%;
+  display:flex;
+  justify-content: space-between; 
+}
+
+.login-register-container {
+  display: flex;
+}
+
+.dark-mode {
+  background-color:#212124;
+  color: white;
+}
+
+#toggle-theme-btn {
+  background-color: rgb(64, 54, 121);
+  border: none;
+  cursor: pointer;
+  padding: 10px; 
+  font-size: 18px;
+  border-radius: 5px;
+  width: auto; 
+  margin-bottom: 10px; 
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+}
+
+#toggle-theme-btn img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; 
+}
+
+#button-text {
+  margin-left: 5px;
+  color: white;
+  font-size: 22px;
+  font-family:'Roboto', sans-serif;
+}
+
+#button-text:hover {
+  color: rgb(150, 233, 198);
+}
+
+#LoginButton{
+  background-color:rgb(33, 25, 81);
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-left: auto; 
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+#LoginButton:hover{
+  background-color:  #4c4670;
+}
+
+#RegisterButton{
+  background-color:rgb(33, 25, 81);
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+#RegisterButton:hover{
+  background-color:  #4c4670;
+}
+/* 
+@media (min-width: 600px) {
+  body {
+    padding: 60px 10px;
+  }
+}   */

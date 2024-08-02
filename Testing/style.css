@@ -1,0 +1,227 @@
+body {
+  display: block;
+  justify-content: center;
+  padding: 40px; 
+  background: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #333;
+}
+
+header {
+  padding: 25px;
+  background-color: rgb(47, 41, 82);
+  font-size: 25px;
+  height: 40px;
+  width: 100%;
+  padding-left: 0; 
+  position: fixed;
+  top: 0;
+  left: 0%;
+  display:flex;
+  justify-content: space-between; 
+}
+
+.login-register-container {
+  display: flex;
+}
+
+.dark-mode {
+  background-color:#212124;
+  color: white;
+}
+
+#toggle-theme-btn {
+  background-color: rgb(64, 54, 121);
+  border: none;
+  cursor: pointer;
+  padding: 10px; 
+  font-size: 18px;
+  border-radius: 5px;
+  width: auto; 
+  margin-bottom: 10px; 
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+}
+
+#toggle-theme-btn img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; 
+}
+
+#button-text {
+  margin-left: 5px;
+  color: white;
+  font-size: 22px;
+  font-family:'Roboto', sans-serif;
+}
+
+#button-text:hover {
+  color: rgb(150, 233, 198);
+}
+
+#LoginButton{
+  background-color:rgb(33, 25, 81);
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-left: auto; 
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+#LoginButton:hover{
+  background-color:  #4c4670;
+}
+
+#RegisterButton{
+  background-color:rgb(33, 25, 81);
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+#RegisterButton:hover{
+  background-color:  #4c4670;
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 60px 10px;
+  }
+}  
+
+h1 {
+  margin: 0;
+  font-family: 'Roboto', serif;
+  font-size: 36px;
+}
+
+p {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1.5;
+  color:rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 624px;
+  background: #e7e7e7;
+  box-shadow: 0 48px 80px -32px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  margin-top: 80px; 
+  margin-bottom: 20px; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+}
+
+.label {
+  width: 100%;
+  padding: 20px 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  color: s#000000;
+  border-radius: 10px;
+}
+
+.label1 {
+  background: rgb(81, 131, 167);
+  border-radius: 10px;
+}
+
+.label2 {
+  background: rgb(102, 161, 135);
+}
+
+.label3 {
+  background:rgb(115, 110, 156);
+}
+
+.label1:hover {
+  background: rgb(123, 201, 255);
+}
+
+.label2:hover {
+  background: rgb(163, 255, 214);
+}
+
+.label3:hover {
+  background: rgb(133, 118, 255);
+}
+
+
+.label:active {
+  background:rgb(123, 201, 255);
+}
+
+.input:focus + .label {
+  z-index: 1;
+}
+
+.input:checked + .label1 {
+  background: rgb(123, 201, 255);
+  color: #000;
+}
+
+.input:checked + .label2 {
+  background: rgb(163, 255, 214); 
+  color: #000;
+}
+
+.input:checked + .label3 {
+  background: rgb(133, 118, 255);
+  color: #000;
+}
+
+.panel1 {
+  display: none;
+  padding: 20px 30px 30px;
+  background: linear-gradient(90deg, rgb(146, 199, 255) 0%, rgb(173, 214, 255) 50%, rgb(146, 199, 255) 105%);
+  border-radius: 10px;
+}
+
+.panel2 {
+  display: none;
+  padding: 20px 30px 30px;
+  background: linear-gradient(90deg, rgb(176, 219, 194) 0%, rgb(220, 245, 232) 50%, rgb(176, 219, 194) 105%);
+  border-radius: 10px;
+}
+
+.panel3 {
+  display: none;
+  padding: 20px 30px 30px;
+  background: linear-gradient(90deg, rgb(211, 177, 255) 0%, rgb(227, 212, 255) 50%, rgb(211, 177, 255) 105%);
+  border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+  .label {
+    width: auto;
+  }
+  .panel {
+    order: 99;
+  }
+}
+
+.input:checked + .label + .panel {
+  display: block;
+} 

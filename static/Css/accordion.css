@@ -1,0 +1,95 @@
+.accordion1 {
+    background-color: rgb(156, 255, 245);
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: transparent;
+    text-align: left;
+    outline:transparent;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.4s;
+    margin-top: 80px; 
+    margin-bottom: 20px; 
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 20px;
+    font-weight: large;
+  }
+
+  .accordion2 {
+    background-color: rgb(164, 200, 255);
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: transparent;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    outline:transparent;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-top: 80px; 
+    margin-bottom: 20px; 
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 20px;
+    font-weight: large;
+  }
+
+  .accordion3 {
+    background-color: rgb(204, 168, 233);
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: transparent;
+    text-align: left;
+    outline:transparent;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-top: 80px; 
+    margin-bottom: 20px; 
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: large;
+  }
+  
+  .active1, .accordion1:hover {
+    background-color: rgb(96, 255, 239); 
+  }
+
+  .active2, .accordion2:hover {
+    background-color: rgb(120, 174, 255); 
+  }
+
+  .active3, .accordion3:hover {
+    background-color: rgb(203, 139, 255); 
+  }
+  
+  .panel1, .panel2, .panel3 {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    font-weight: 400;
+    font-size: large;
+  }
+  
+  .panel1 {
+    background-color: rgb(194, 255, 249);
+  }
+  
+  .panel2 {
+    background-color: rgb(202, 222, 252);
+  }
+  
+  .panel3 {
+    background-color: rgb(234, 208, 255);
+  }
+  

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/Css/SideBar.css">
+  <link rel="stylesheet" href="../static/CSS/welcome_page_style.css">
+  <link rel="stylesheet" href="../static/CSS/accordion.css">
+</head>
+
+<header>
+  <button class="openbtn" onclick="openNav()">&#9776; </button>
+  <div class="login-register-container">
+      <button id="LoginButton" onclick="redirectToLoginPage()">Login</button>
+      <button id="RegisterButton" onclick="redirectToRegisterPage()">Register</button>
+  </div>
+</header>
+
+<body>
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../static/Templates/Profile.html" onclick="redirectToProfilePage()">
+      <img id="profile" src="" alt=""> Profile
+    </a>    
+    <a href="#"><img id="home" src="../static/Assets/home.png" alt="Home"> Home</a>
+    <a href="#"><img id="info" src="../static/Assets/info.png" alt="Info"> About</a>
+    <a href="#"><img id="contact" src="../static/Assets/contact.png" alt="Contact"> Contact</a>
+    <button id="toggle-theme-btn" onclick="toggleDarkMode()" title="Toggle theme mode">
+        <img id="modeIcon" src="../static/Assets/sun.svg" alt="Light Mode">
+        <span id="button-text">Dark Mode</span>
+    </button>
+  </div>
+
+<button class="accordion1">Description Page</button>
+<div class="panel1">
+  <p>Welcome to TaskFlow: Streamline Your Projects with Ease!<br>
+    TaskFlow is your all-in-one project management solution 
+    designed to simplify teamwork, boost productivity, 
+    and keep your projects on track. Whether you're managing 
+    a small team or coordinating complex projects, 
+    TaskFlow empowers you 
+    to visualize, organize, and collaborate seamlessly.
+  </p>
+</div>
+
+<button class="accordion2">Key Features</button>
+<div class="panel2">
+  <p>
+    <ul>
+      <li>Intuitive Boards: Create custom boards to visualize your workflow, organize tasks, and track progress effortlessly.</li>
+      <li>Flexible Lists: Arrange tasks into customizable lists to prioritize, categorize, and manage your workflow efficiently.</li>
+      <li>Collaborative Cards: Assign tasks, add due dates, attach files, and leave comments directly on cards to keep everyone in the loop.</li>
+      <li>Dynamic Templates: Jumpstart your projects with pre-designed templates tailored for various industries and project types.</li>
+      <li>Real-Time Updates: Stay informed with instant notifications, activity logs, and status updates to keep projects moving forward.</li>
+      <li>Powerful Integrations: Seamlessly connect TaskFlow with your favorite tools like Google Drive, Slack, and more to streamline your workflow.</li>
+    </ul>  
+  </p></div>
+
+<button class="accordion3">How to Use TaskFlow</button>
+<div class="panel3">
+  <p>
+    <ul>
+      <li>Sign Up: Create your TaskFlow account by visiting our website and filling out a simple registration form. You can also sign up using your Google or Microsoft account for added convenience.</li>
+      <li>Create Your First Board: Once logged in, create your first board by clicking on the "Create Board" button. Give your board a name and choose a template or start from scratch.</li>
+      <li>Add Lists: Within your board, add lists to represent different stages of your workflow. For example, you could have lists for "To Do," "In Progress," and "Done."</li>
+      <li>Create Cards: Populate your lists with cards representing individual tasks or action items. Click on "Add a Card" to create a new card, then add a title, description, due date, and assignees as needed.</li>
+    </ul>
+    <p>
+      Customize Cards: Customize your cards further by adding labels, attachments, checklists, and comments to provide additional context and information.
+
+      Collaborate: Invite team members to your board by adding them as members. They can then view, edit, and comment on cards, ensuring everyone stays on the same page.
+
+      Track Progress: Move cards between lists as tasks progress through your workflow. Use labels, due dates, and filters to prioritize tasks and track their status at a glance.
+
+      Stay Updated: TaskFlow keeps you informed with real-time notifications for important events such as card assignments, due date reminders, and comments from team members.
+
+      Integrate with Other Tools: Take advantage of TaskFlow's powerful integrations with tools like Google Drive, Slack, and Trello to streamline your workflow and centralize your project management efforts.
+
+      Celebrate Success: As tasks are completed and projects reach their milestones, celebrate your team's success and reflect on lessons learned to continuously improve your processes.  
+    </p>
+</div>
+
+<script>
+  var acc = document.getElementsByClassName("accordion1");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active1");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<script>
+  var acc = document.getElementsByClassName("accordion2");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active2");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<script>
+  var acc = document.getElementsByClassName("accordion3");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active3");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<script src="../static/Js/bar.js"></script>
+<script src="../static/Js/login-register_redirect.js"></script>
+<script>
+    function toggleDarkMode() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+
+        var button = document.getElementById("toggle-theme-btn");
+        var image = document.getElementById("modeIcon");
+
+        if (element.classList.contains("dark-mode")) {
+            image.src = "../static/Assets/moon.svg";
+            image.alt = "Dark Mode";
+            document.getElementById("button-text").innerText = "Light Mode";
+        } else {
+            image.src = "../static/Assets/sun.svg";
+            image.alt = "Dark Mode";
+            document.getElementById("button-text").innerText = "Dark Mode";
+        }
+    }
+</script>
+
+<script>
+  function redirectToProfilePage() {
+    window.location.href = "../static/Templates/Profile.html";;
+}
+</script>
+
+</body>
+</html>
