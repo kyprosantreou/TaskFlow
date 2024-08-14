@@ -55,11 +55,12 @@ def register():
         username = request.form['Username']
         email = request.form['Email'].lower()
         password = request.form['password']
+        key = request.form['Key']
         hashed_password = ph.hash(password)
         cur = mysql.connection.cursor()
 
-        cur.execute("INSERT INTO users (name, surname, username, email, password) VALUES (%s, %s, %s, %s, %s)",
-                    (name, surname, username, email, hashed_password))
+        cur.execute("INSERT INTO users (name, surname, username, email, password, notification_key) VALUES (%s, %s, %s, %s, %s, %s)",
+                    (name, surname, username, email, hashed_password, key))
         
         mysql.connection.commit()
         cur.close()
