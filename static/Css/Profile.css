@@ -4,10 +4,18 @@ body {
     justify-content: center; 
     align-items: center; 
     margin: 0; 
-    background-color: #efeaff;
-    /* background: linear-gradient(90deg, rgb(33, 25, 81) 0%, rgb(131, 111, 255) 50%, rgb(33, 25, 81) 105%); */
     caret-color: black; 
     margin-bottom: auto;
+}
+
+body.dark-mode {
+  background-color: #50577A;
+  color: white;
+}
+
+body.light-mode {
+  background-color: #efeaff;
+  color: #333;
 }
 
 header {
@@ -157,4 +165,34 @@ font-family:'Roboto', sans-serif;
     border: none;
     padding: 0;
     outline: none; 
+}
+
+#downloadDataBtn{
+    background-color: rgb(144, 77, 165);
+    color: #fff;
+    border: none;
+    padding:12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#downloadDataBtn:hover{
+    background-color: rgb(152, 32, 189);
+}
+
+
+#LogoutButton{
+  background-color:rgb(33, 25, 81);
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+#LogoutButton:hover{
+   background-color:  #4c4670;
 }

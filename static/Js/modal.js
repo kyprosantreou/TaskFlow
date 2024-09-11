@@ -172,10 +172,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Load tasks script
+
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Fetch tasks from the server and display them
     function loadTasks() {
         fetch('/tasks')
             .then(response => response.json())
@@ -194,7 +193,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching tasks:', error));
     }
 
-    // Helper function to create a task element
     function createTaskElement(id, title, content, status, createdAt) {
         var task = document.createElement("div");
         task.classList.add("task");
@@ -270,10 +268,8 @@ document.addEventListener("DOMContentLoaded", function() {
         editModal.style.display = "block";
     }
 
-    // Load tasks when the page is loaded
     loadTasks();
 
-    // Handle adding new tasks
     document.getElementById("taskForm").addEventListener("submit", function(event) {
         event.preventDefault();
         var title = document.getElementById("taskTitle").value;

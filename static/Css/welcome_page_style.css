@@ -2,10 +2,21 @@ body {
   display: block;
   justify-content: center;
   padding: 40px; 
-  background: white;
+  background-color: #efeaff;
   font-family: 'Roboto', sans-serif;
   color: #333;
 }
+
+body.light-mode {
+  background-color: #efeaff;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #50577A;
+  color: #50577A;
+}
+
 
 header {
   padding: 25px;
@@ -91,9 +102,18 @@ header {
 #RegisterButton:hover{
   background-color:  #4c4670;
 }
-/* 
-@media (min-width: 600px) {
-  body {
-    padding: 60px 10px;
-  }
-}   */
+
+#LogoutButton{
+  background-color:rgb(33, 25, 81);
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+#LogoutButton:hover{
+   background-color:  #4c4670;
+}

@@ -1,148 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Management</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/SideBar.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/searchbar.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/SideBar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/searchbar.css') }}">
 </head>
 
-<!-- <header>
-  <button class="openbtn" onclick="openNav()">&#9776; </button>
-  <div class="searchBar">
-      <input type="text" id="searchTitle" placeholder="Search for a task by title">
-      <select id="searchStatus">
-          <option value="">Select Status</option>
-          <option value="todo">To Do</option>
-          <option value="inProgress">In Progress</option>
-          <option value="done">Done</option>
-      </select>
-      <button id="searchBtn">Search</button>
-  </div>
-</header> -->
-
-<header>
-  <button class="openbtn" onclick="openNav()">&#9776; </button>
-  <div id="searchBar">
-      <input type="text" id="searchTitle" placeholder="Search for a task by title">
-      <select id="searchStatus">
-          <option value="">Select Status</option>
-          <option value="todo">To Do</option>
-          <option value="inProgress">In Progress</option>
-          <option value="done">Done</option>
-      </select>
-      <button id="searchBtn">Search</button>
-  </div>
-</header>
-
 <body>
-  <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="../Templates/Profile.html" onclick="redirectToProfilePage()">
-        <img id="profile" src="../static/Assets/profile.png" alt=""> Profile
-    </a>    
-    <a href="../Templates/home.html"><img id="home" src="../static/Assets/home.png" alt="Home"> Home</a>
-    <a href="../Templates/index.html" onclick="redirectToAboutPage()" ><img id="info" src="../static/Assets/info.png" alt="Info"> About</a>
-    <button id="toggle-theme-btn" onclick="toggleDarkMode()" title="Toggle theme mode">
-        <img id="modeIcon" src="{{ url_for('static', filename='Assets/sun.svg') }}" alt="Light Mode">
-        <span id="button-text">Dark Mode</span>
-    </button>
-  </div>
-    
-  <div class="board">
-    <div class="column">
-      <div class="column-header-todo">
-        <h2>To Do</h2>
-      </div>
-      <div class="tasks" id="todo">
-      </div>
-      <div class="add-task">
-        <button id="openModalBtn"></button>
-      </div>
-    </div>
-    <div class="column">
-      <div class="column-header-inprogress">
-        <h2>In Progress</h2>
-      </div>
-      <div class="tasks" id="inProgress">
-      </div>
-    </div>
-    <div class="column">
-      <div class="column-header-done">
-        <h2>Done</h2>
-      </div>
-      <div class="tasks" id="done">
-      </div>
-    </div>
-    <div id="taskModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Add Task</h2>
-          <form id="taskForm">
-              <label for="taskTitle">Title:</label><br>
-              <input type="text" id="taskTitle" name="taskTitle" required><br>
-              <label for="taskContent">Content:</label><br>
-              <textarea id="taskContent" name="taskContent" required></textarea><br><br>
-              <input type="submit" value="Add Task">
-          </form>
-      </div>
+    <header>
+      <button class="openbtn" onclick="openNav()">&#9776; </button>
+            <div id="searchBar">
+                  <input type="text" id="searchTitle" placeholder="Search for a task by title">
+                  <select id="searchStatus">
+                      <option selected disabled hidden>Choose status</option>
+                      <option value="todo">To Do</option>
+                      <option value="inProgress">In Progress</option>
+                      <option value="done">Done</option>
+                      <option value="">All</option>
+                  </select>
+                  <button id="searchBtn">Search</button>
+            </div>
+
+        <div class="login-register-container">
+          {% if session.logged_in %}
+            <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+              <button type="submit" id="LogoutButton">Logout</button>
+            </form>
+          {% else %}
+            <button id="LoginButton" onclick="redirectToLoginPage()">Login</button>
+            <button id="RegisterButton" onclick="redirectToRegisterPage()">Register</button>
+          {% endif %}   
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../Templates/Profile.html" onclick="redirectToProfilePage()">
+            <img id="profile" src="../static/Assets/profile.png" alt=""> Profile
+        </a>    
+        <a href="../Templates/home.html"><img id="home" src="../static/Assets/home.png" alt="Home"> Home</a>
+        <a href="../Templates/index.html" onclick="redirectToAboutPage()"><img id="info" src="../static/Assets/info.png" alt="Info"> About</a>
+        <button id="toggle-theme-btn" onclick="toggleDarkMode()" title="Toggle theme mode">
+            <img id="modeIcon" src="{{ url_for('static', filename='Assets/sun.svg') }}" alt="Light Mode">
+            <span id="button-text">Dark Mode</span>
+        </button>
     </div>
 
-    <div id="editModal" class="modal">
-      <div class="modal-content">
-          <span id="editCloseBtn" class="close">&times;</span>
-          <h2>Edit Task</h2>
-          <form id="editTaskForm">
-              <label for="editTaskTitle">Title:</label><br>
-              <input type="text" id="editTaskTitle" name="editTaskTitle" required><br>
-              <label for="editTaskContent">Content:</label><br>
-              <textarea id="editTaskContent" name="editTaskContent" required></textarea><br><br>
-              <input type="submit" value="Save Changes">
-          </form>
-      </div>
+    <div class="task-container">
+        <div class="board">
+            <div class="column">
+              <div class="column-header-todo">
+                <h2>To Do</h2>
+              </div>
+              <div class="tasks" id="todo">
+              </div>
+              <div class="add-task">
+                <button id="openModalBtn"></button>
+              </div>
+            </div>
+            <div class="column">
+              <div class="column-header-inprogress">
+                <h2>In Progress</h2>
+              </div>
+              <div class="tasks" id="inProgress">
+              </div>
+            </div>
+            <div class="column">
+              <div class="column-header-done">
+                <h2>Done</h2>
+              </div>
+              <div class="tasks" id="done">
+              </div>
+            </div>
+            <div id="taskModal" class="modal">
+              <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Add Task</h2>
+                  <form id="taskForm">
+                      <label for="taskTitle">Title:</label><br>
+                      <input type="text" id="taskTitle" name="taskTitle" required><br>
+                      <label for="taskContent">Content:</label><br>
+                      <textarea id="taskContent" name="taskContent" required></textarea><br><br>
+                      <input type="submit" value="Add Task">
+                  </form>
+              </div>
+            </div>
+        
+            <div id="editModal" class="modal">
+              <div class="modal-content">
+                  <span id="editCloseBtn" class="close">&times;</span>
+                  <h2>Edit Task</h2>
+                  <form id="editTaskForm">
+                      <label for="editTaskTitle">Title:</label><br>
+                      <input type="text" id="editTaskTitle" name="editTaskTitle" required><br>
+                      <label for="editTaskContent">Content:</label><br>
+                      <textarea id="editTaskContent" name="editTaskContent" required></textarea><br><br>
+                      <input type="submit" value="Save Changes">
+                  </form>
+              </div>
+            </div>
+        
+          </div>
+        
+          <div id="assignModal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeAssignModal()">&times;</span>
+              <h2>Assign Task</h2>
+              <form id="assignTaskForm">
+                <label for="assignUsername">Username:</label><br>
+                <input type="text" id="assignUsername" name="assignUsername" oninput="searchUsers()" required><br>
+                <ul id="userList"></ul><br>
+                <input type="submit" value="Assign Task">
+              </form>
+            </div>
+          </div>
+          
+        
+          <button id="editBtn" class="edit-btn" style="display: none;">Edit Task</button>
+        
+          <button id="deleteBtn" class="delete-btn" style="display: none;">Delete Task</button>
     </div>
 
-  </div>
+    <script src="{{ url_for('static', filename='Js/bar.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/darkmode.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/task_management.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/darkmode.js') }}"></script>
 
-  <div id="assignModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeAssignModal()">&times;</span>
-      <h2>Assign Task</h2>
-      <form id="assignTaskForm">
-        <label for="assignUsername">Username:</label><br>
-        <input type="text" id="assignUsername" name="assignUsername" oninput="searchUsers()" required><br>
-        <ul id="userList"></ul><br>
-        <input type="submit" value="Assign Task">
-      </form>
-    </div>
-  </div>
-  
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentMode = getCookie("theme") || "light";
+            document.body.classList.add(`${currentMode}-mode`);
+            updateToggleButton(currentMode);
+        });
 
-  <button id="editBtn" class="edit-btn" style="display: none;">Edit Task</button>
+        function toggleDarkMode() {
+            const currentMode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+            const newMode = currentMode === 'light' ? 'dark' : 'light';
+            document.body.classList.remove(`${currentMode}-mode`);
+            document.body.classList.add(`${newMode}-mode`);
+            updateToggleButton(newMode);
+            setCookie("theme", newMode, 365); 
+        }
 
-  <button id="deleteBtn" class="delete-btn" style="display: none;">Delete Task</button>
+        function updateToggleButton(mode) {
+            const modeIcon = document.getElementById('modeIcon');
+            const buttonText = document.getElementById('button-text');
+            if (mode === 'light') {
+                modeIcon.src = "{{ url_for('static', filename='Assets/sun.svg') }}";
+                buttonText.textContent = 'Dark Mode';
+            } else {
+                modeIcon.src = "{{ url_for('static', filename='Assets/moon.svg') }}";
+                buttonText.textContent = 'Light Mode';
+            }
+        }
 
-<script src="{{ url_for('static', filename='Js/bar.js') }}"></script>
-<script src="{{ url_for('static', filename='Js/darkmode.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='Js/modal.js') }}"></script> -->
-<script src="{{ url_for('static', filename='Js/task_management.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='Js/test.js') }}"></script> -->
-<!-- <script src="{{ url_for('static', filename='Js/searchbar.js') }}"></script> -->
-<script>
-    function redirectToProfilePage() {
-        window.location.href = "../Templates/Profile.html";
-    }
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
 
-    function redirectToAboutPage() {
-        window.location.href = "../Templates/index.html";
-    }
+        function getCookie(name) {
+            let cname = name + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) == 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
 
-    function redirectToHomePage() {
-        window.location.href = "../Templates/home.html";
-    }
-</script>
+        function redirectToProfilePage() {
+            window.location.href = "../Templates/Profile.html";
+        }
 
+        function redirectToAboutPage() {
+            window.location.href = "../Templates/index.html";
+        }
+
+        function redirectToHomePage() {
+            window.location.href = "../Templates/home.html";
+        }
+    </script>
 </body>
 </html>

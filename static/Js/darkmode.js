@@ -1,17 +1,26 @@
 function toggleDarkMode() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
-
-  var button = document.getElementById("toggle-theme-btn");
-  var image = document.getElementById("modeIcon");
-
-  if (element.classList.contains("dark-mode")) {
-      image.src =  "../static/Assets/moon.svg";
-      image.alt = "Dark Mode";
-      document.getElementById("button-text").innerText = "Light Mode";
-  } else {
-      image.src = "../static/Assets/sun.svg";
-      image.alt = "Dark Mode";
-      document.getElementById("button-text").innerText = "Dark Mode";
-  }
+  fetch('/toggle_theme', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+          document.body.classList.toggle('dark-mode', data.theme_mode === 'dark');
+          const modeIcon = document.getElementById('modeIcon');
+          const buttonText = document.getElementById('button-text');
+          
+          if (data.theme_mode === 'dark') {
+              modeIcon.src = "{{ url_for('static', filename='Assets/moon.svg') }}";
+              buttonText.textContent = "Light Mode";
+          } else {
+              modeIcon.src = "{{ url_for('static', filename='Assets/sun.svg') }}";
+              buttonText.textContent = "Dark Mode";
+          }
+      }
+  })
+  .catch(error => console.error('Error:', error));
 }
+

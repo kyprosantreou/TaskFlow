@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+  mysql:
+    image: mysql:8.0.28
+    container_name: di_inter_tech_mysql
+    environment:
+      - MYSQL_DATABASE=di_internet_technologies_project
+      - MYSQL_USER=webuser
+      - MYSQL_PASSWORD=webpass
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - TZ=EEST
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d/:ro
+    networks:
+      - di_internet_technologies_network
+
+  flask-app:
+    build: ./
+    container_name: di_inter_tech_flask
+    environment:
+      - FLASK_ENV=development
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=di_internet_technologies_project
+      - MYSQL_USER=webuser
+      - MYSQL_PASSWORD=webpass
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/app
+    depends_on:
+      - mysql
+    networks:
+      - di_internet_technologies_network
+
+networks:
+  di_internet_technologies_network:
+    name: di_internet_technologies_network
+    driver: bridge

@@ -28,7 +28,7 @@ try:
 
     # Create the Tasks table if it doesn't exist
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Tasks (
+    CREATE TABLE IF NOT EXISTS tasks (
         TaskID INT AUTO_INCREMENT PRIMARY KEY,
         Title VARCHAR(255) NOT NULL,
         Content TEXT,

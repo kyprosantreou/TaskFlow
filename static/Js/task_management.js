@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
         button.textContent = "Mark as In Progress";
         button.classList.add("move-to-in-progress-btn");
         button.onclick = function() {
-            var taskId = task.getAttribute('data-id');  // Get task ID
-            var newStatus = 'inProgress';  // Ensure this value is valid
-            console.log("Marking task as In Progress. Task ID:", taskId);  // Debugging
+            var taskId = task.getAttribute('data-id');  
+            var newStatus = 'inProgress';  
+            console.log("Marking task as In Progress. Task ID:", taskId);  
             fetch('/update_task_status', {
                 method: 'POST',
                 headers: {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    //----------------------------------------------------------------------------------
+    
     function addMoveToAssignButton(task) {
         var button = document.createElement("button");
         button.textContent = "Assign to";
@@ -124,11 +124,19 @@ document.addEventListener("DOMContentLoaded", function() {
         var assignModal = document.getElementById("assignModal");
         assignModal.task = task;
         assignModal.style.display = "block";
+        
         var errorMsg = document.getElementById("assignErrorMsg");
         if (errorMsg) {
-            errorMsg.remove(); // Remove any previous error messages
+            errorMsg.remove();
         }
+
+        var title = task.querySelector("h3").textContent; 
+        console.log("Task Title:", title);
+
+        var taskTitleElement = document.getElementById("taskTitle"); 
+        taskTitleElement.value = title; 
     }
+
     
     function showAssignErrorMessage(message) {
         var errorMsg = document.getElementById("assignErrorMsg");
@@ -160,40 +168,43 @@ document.addEventListener("DOMContentLoaded", function() {
           }
       }
 
-
     document.getElementById("assignTaskForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        var assignModal = document.getElementById("assignModal");
-        var task = assignModal.task;
-        var username = document.getElementById("assignUsername").value;
+    event.preventDefault();
     
-        fetch('/assign_to', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                task_id: task.getAttribute('data-id'),
-                username: username
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                updateTaskAssignedTo(task, username);
-                closeAssignModal();
-            } else if (data.error === 'user_not_found') {
-                showAssignErrorMessage('User not found. Please enter a valid username.');
-            } else {
-                console.error('Error assigning task:', data.error);
-                showAssignErrorMessage('User not found. Please enter a valid username.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showAssignErrorMessage('An error occurred while assigning the task. Please try again.');
-        });
+    var assignModal = document.getElementById("assignModal");
+    var task = assignModal.task;
+
+    var title = task.querySelector("h3").textContent;
+    var username = document.getElementById("assignUsername").value;
+
+    console.log("Assigning task '" + title + "' to " + username);
+
+    fetch('/assign_to', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            task_id: task.getAttribute('data-id'),
+            username: username,
+            title: title 
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            updateTaskAssignedTo(task, username);
+            closeAssignModal();
+        } else {
+            showAssignErrorMessage(data.error || 'An error occurred');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showAssignErrorMessage('An error occurred while assigning the task. Please try again.');
     });
+});
+
     
     function searchUsers() {
         var query = document.getElementById("assignUsername").value;
@@ -219,19 +230,10 @@ document.addEventListener("DOMContentLoaded", function() {
             var span = document.createElement("span");
             span.textContent = "Assigned To: " + username;
             span.classList.add("task-assigned");
-            // task.appendChild(span);
+            
         }
     }
 
-    
-
-    // function moveTaskToInProgress(task) {
-    //     var inProgressColumn = document.getElementById("inProgress");
-    //     task.querySelector(".move-to-in-progress-btn").remove();
-    //     addMoveToDoneButton(task);
-    //     inProgressColumn.appendChild(task);
-    // }
-    //----------------------------------------------------------------------------------
 
     function addCreationDateTime(task) {
         var dateTime = new Date().toLocaleString();
@@ -381,7 +383,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 var inProgressColumn = document.getElementById("inProgress");
                 var doneColumn = document.getElementById("done");
     
-                // Clear current tasks
                 todoColumn.innerHTML = '';
                 inProgressColumn.innerHTML = '';
                 doneColumn.innerHTML = '';

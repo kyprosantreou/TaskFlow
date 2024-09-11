@@ -10,13 +10,23 @@
 
 <header>
     <button class="openbtn" onclick="openNav()">&#9776; </button>
+    <div class="login-register-container">
+          {% if session.logged_in %}
+            <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+              <button type="submit" id="LogoutButton">Logout</button>
+            </form>
+          {% else %}
+            <button id="LoginButton" onclick="redirectToLoginPage()">Login</button>
+            <button id="RegisterButton" onclick="redirectToRegisterPage()">Register</button>
+          {% endif %}   
+    </div>
 </header>
 
 <body>
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="../Templates/Profile.html" onclick="redirectToProfilePage()">
-        <img id="profile" src="../static/Assets/profile.png" alt=""> Profile
+        <img id="profile" src="../static/Assets/profile.png" alt="Profile"> Profile
     </a>    
     <a href="#" onclick="redirectToHomePage()"><img id="home" src="{{ url_for('static', filename='Assets/home.png') }}" alt="Home"> Home</a>
     <a href="../Templates/index.html" onclick="redirectToAboutPage()"><img id="info" src="{{ url_for('static', filename='Assets/info.png') }}" alt="Info"> About</a>
@@ -35,7 +45,7 @@
         </div>
         <div class="form-group">
             <label for="change-name">Change Name:</label>
-            <input type="text" id="change-name" name="change-name">
+            <input type="text" id="change-name" name="change-name" required>
         </div>
         <div class="form-group">
             <label for="change-surname">Change Surname:</label>
@@ -62,7 +72,59 @@
 <script src="{{ url_for('static', filename='Js/bar.js') }}"></script>
 <script src="{{ url_for('static', filename='Js/darkmode.js') }}"></script>
 <script src="{{ url_for('static', filename='Js/emailValidation.js') }}"></script>
+<script src="{{ url_for('static', filename='Js/darkmode.js') }}"></script>
+
 <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentMode = getCookie("theme") || "light";
+            document.body.classList.add(`${currentMode}-mode`);
+            updateToggleButton(currentMode);
+        });
+
+        function toggleDarkMode() {
+            const currentMode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+            const newMode = currentMode === 'light' ? 'dark' : 'light';
+            document.body.classList.remove(`${currentMode}-mode`);
+            document.body.classList.add(`${newMode}-mode`);
+            updateToggleButton(newMode);
+            setCookie("theme", newMode, 365); 
+        }
+
+        function updateToggleButton(mode) {
+            const modeIcon = document.getElementById('modeIcon');
+            const buttonText = document.getElementById('button-text');
+            if (mode === 'light') {
+                modeIcon.src = "{{ url_for('static', filename='Assets/sun.svg') }}";
+                buttonText.textContent = 'Dark Mode';
+            } else {
+                modeIcon.src = "{{ url_for('static', filename='Assets/moon.svg') }}";
+                buttonText.textContent = 'Light Mode';
+            }
+        }
+
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            let cname = name + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) == 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+
     function redirectToProfilePage() {
         window.location.href = "../Templates/Profile.html";
     }
@@ -100,6 +162,7 @@
         .then(data => {
             if (data.success) {
                 alert('Account settings updated successfully.');
+                form.reset();
             } else {
                 alert('Error updating account settings.');
             }
@@ -133,12 +196,12 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrf_token') // If you use CSRF protection
+                'X-CSRFToken': getCookie('csrf_token') 
             }
         })
         .then(response => response.blob())
         .then(blob => {
-            // Create a link element to trigger the download
+           
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             link.download = 'user_data.xml';
@@ -149,7 +212,7 @@
         .catch(error => console.error('Error downloading data:', error));
     });
 
-    // Function to get the CSRF token from cookies (if used)
+   
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
