@@ -350,7 +350,7 @@ def update_account():
     # If the user provided a new username, update the username in the users and tasks tables
     if new_username:
         # Update the username in the users table
-        cur.execute("UPDATE users SET username = %s WHERE name = %s", (new_username, user_id))
+        cur.execute("UPDATE users SET username = %s WHERE username = %s", (new_username, old_username))
         
         # Update the assigned_to field in tasks where the old username was assigned
         cur.execute("UPDATE tasks SET assigned_to = %s WHERE assigned_to = %s", (new_username, old_username))
