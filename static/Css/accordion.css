@@ -1,95 +1,104 @@
+/* Styles for the first accordion button */
 .accordion1 {
-    background-color: rgb(156, 255, 245);
-    color: #000000;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: transparent;
-    text-align: left;
-    outline:transparent;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    transition: 0.4s;
-    margin-top: 80px; 
-    margin-bottom: 20px; 
-    margin-left: auto; 
-    margin-right: auto;
-    border-radius: 20px;
-    font-weight: large;
-  }
+    background-color: rgb(156, 255, 245); /* Light teal background */
+    color: #000000; /* Black text color */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    padding: 18px; /* Space inside the button */
+    width: 100%; /* Full width of the container */
+    border: transparent; /* No border */
+    text-align: left; /* Align text to the left */
+    outline: transparent; /* No outline */
+    font-size: 20px; /* Font size of the text */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    transition: 0.4s; /* Smooth transition for background color change */
+    margin-top: 80px; /* Top margin for spacing */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+    border-radius: 20px; /* Rounded corners */
+    font-weight: large; /* Bold text */
+}
 
-  .accordion2 {
-    background-color: rgb(164, 200, 255);
-    color: #000000;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: transparent;
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    outline:transparent;
-    font-size: 20px;
-    transition: 0.4s;
-    margin-top: 80px; 
-    margin-bottom: 20px; 
-    margin-left: auto; 
-    margin-right: auto;
-    border-radius: 20px;
-    font-weight: large;
-  }
+/* Styles for the second accordion button */
+.accordion2 {
+    background-color: rgb(164, 200, 255); /* Light blue background */
+    color: #000000; /* Black text color */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    padding: 18px; /* Space inside the button */
+    width: 100%; /* Full width of the container */
+    border: transparent; /* No border */
+    text-align: left; /* Align text to the left */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    outline: transparent; /* No outline */
+    font-size: 20px; /* Font size of the text */
+    transition: 0.4s; /* Smooth transition for background color change */
+    margin-top: 80px; /* Top margin for spacing */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+    border-radius: 20px; /* Rounded corners */
+    font-weight: large; /* Bold text */
+}
 
-  .accordion3 {
-    background-color: rgb(204, 168, 233);
-    color: #000000;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: transparent;
-    text-align: left;
-    outline:transparent;
-    font-size: 20px;
-    transition: 0.4s;
-    margin-top: 80px; 
-    margin-bottom: 20px; 
-    margin-left: auto; 
-    margin-right: auto;
-    border-radius: 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: large;
-  }
-  
-  .active1, .accordion1:hover {
-    background-color: rgb(96, 255, 239); 
-  }
+/* Styles for the third accordion button */
+.accordion3 {
+    background-color: rgb(204, 168, 233); /* Light purple background */
+    color: #000000; /* Black text color */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    padding: 18px; /* Space inside the button */
+    width: 100%; /* Full width of the container */
+    border: transparent; /* No border */
+    text-align: left; /* Align text to the left */
+    outline: transparent; /* No outline */
+    font-size: 20px; /* Font size of the text */
+    transition: 0.4s; /* Smooth transition for background color change */
+    margin-top: 80px; /* Top margin for spacing */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+    border-radius: 20px; /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-weight: large; /* Bold text */
+}
 
-  .active2, .accordion2:hover {
-    background-color: rgb(120, 174, 255); 
-  }
+/* Styles for active state and hover effect for the first accordion button */
+.active1, .accordion1:hover {
+    background-color: rgb(96, 255, 239); /* Darker teal background on hover or when active */
+}
 
-  .active3, .accordion3:hover {
-    background-color: rgb(203, 139, 255); 
-  }
-  
-  .panel1, .panel2, .panel3 {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    border-radius: 20px;
-    font-family: 'Roboto', sans-serif;
-    color: #000000;
-    font-weight: 400;
-    font-size: large;
-  }
-  
-  .panel1 {
-    background-color: rgb(194, 255, 249);
-  }
-  
-  .panel2 {
-    background-color: rgb(202, 222, 252);
-  }
-  
-  .panel3 {
-    background-color: rgb(234, 208, 255);
-  }
-  
+/* Styles for active state and hover effect for the second accordion button */
+.active2, .accordion2:hover {
+    background-color: rgb(120, 174, 255); /* Darker blue background on hover or when active */
+}
+
+/* Styles for active state and hover effect for the third accordion button */
+.active3, .accordion3:hover {
+    background-color: rgb(203, 139, 255); /* Darker purple background on hover or when active */
+}
+
+/* Styles for the panels that show/hide content */
+.panel1, .panel2, .panel3 {
+    padding: 0 18px; /* Space inside the panel */
+    display: none; /* Hidden by default */
+    overflow: hidden; /* Hide overflow content */
+    border-radius: 20px; /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    color: #000000; /* Black text color */
+    font-weight: 400; /* Normal text weight */
+    font-size: large; /* Large font size */
+}
+
+/* Styles for the content in the first panel */
+.panel1 {
+    background-color: rgb(194, 255, 249); /* Light teal background */
+}
+
+/* Styles for the content in the second panel */
+.panel2 {
+    background-color: rgb(202, 222, 252); /* Light blue background */
+}
+
+/* Styles for the content in the third panel */
+.panel3 {
+    background-color: rgb(234, 208, 255); /* Light purple background */
+}

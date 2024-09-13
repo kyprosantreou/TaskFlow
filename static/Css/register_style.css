@@ -1,109 +1,123 @@
+/* Background styling for the entire page */
 body {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(33, 25, 81) 0%, rgb(131, 111, 255) 50%, rgb(33, 25, 81) 105%);
+    background: rgb(2,0,36); /* Fallback background color */
+    background: linear-gradient(90deg, rgb(33, 25, 81) 0%, rgb(131, 111, 255) 50%, rgb(33, 25, 81) 105%); /* Gradient background */
 }
 
+/* Full height and centering for the HTML and body */
 html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
+/* Flex container to center content */
 .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
+/* Styling for the card element */
 .card {
-    background-color: rgb(240, 243, 255);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width:400px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color:#ffffff;
+    background-color: rgb(240, 243, 255); /* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 400px; /* Fixed width */
+    max-width: 600px; /* Maximum width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px; /* Space inside the card */
+    background-color: #ffffff; /* White background */
 }
 
+/* Styling for main heading */
 h1 {
-    text-align: center;
-    color: #000000;
-    margin-bottom: 30px;
-    font-family: 'Roboto', sans-serif;
+    text-align: center; /* Center the text */
+    color: #000000; /* Black text color */
+    margin-bottom: 30px; /* Space below the heading */
+    font-family: 'Roboto', sans-serif; /* Font family */
 }
 
+/* Relative positioning for password input wrapper */
 .password-input {
-    position: relative;
+    position: relative; /* Allows absolute positioning of child elements */
 }
 
+/* Padding adjustment for password input field to make space for toggle button */
 .password-input input {
-    padding-right: 30px;
+    padding-right: 30px; /* Space for the toggle button */
 }
 
+/* Styling for password visibility toggle button */
 .toggle-password,
 .toggle-repeat-password {
-    position: absolute;
-    right: 5px;
-    top: 35%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    background-image: url('../Assets/eye.svg'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    border: none;
-    padding: 0;
-    outline: none; 
+    position: absolute; /* Absolute positioning within the password-input wrapper */
+    right: 5px; /* Distance from the right edge */
+    top: 35%; /* Vertical alignment */
+    transform: translateY(-50%); /* Center vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 25px; /* Width of the icon */
+    height: 25px; /* Height of the icon */
+    background-image: url('../Assets/eye.svg'); /* Background image for the icon */
+    background-size: contain; /* Scale the image to fit within the button */
+    background-repeat: no-repeat; /* No repeat for the image */
+    background-color: #ffffff; /* White background for the button */
+    border: none; /* No border */
+    padding: 0; /* Remove padding */
+    outline: none; /* Remove outline */
 }
 
+/* Styling for text and password input fields */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
+    width: 100%; /* Full width */
+    padding: 10px; /* Space inside the input */
+    margin-bottom: 20px; /* Space below the input */
+    border: 1px solid #dddddd; /* Light border color */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in width */
+    color: #000000; /* Black text color */
+    font-family: 'Roboto', sans-serif; /* Font family */
 }
 
+/* Styling for form labels */
 label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight:600;
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
 }
 
+/* Styling for submit button */
 input[type="submit"] {
-    background-color: rgb(55, 181, 182);
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s;
+    background-color: rgb(55, 181, 182); /* Light teal background */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px; /* Space inside the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full width */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
+/* Hover effect for submit button */
 input[type="submit"]:hover {
-    background-color: rgb(21, 245, 186);
+    background-color: rgb(21, 245, 186); /* Brighter teal on hover */
 }
 
-#password-error{
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+/* Styling for password error message */
+#password-error {
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
 }
 
-#validationMessage{
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+/* Styling for validation message */
+#validationMessage {
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
 }

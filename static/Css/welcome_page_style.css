@@ -1,119 +1,134 @@
+/* Basic styling for the body element */
 body {
-  display: block;
-  justify-content: center;
-  padding: 40px; 
-  background-color: #efeaff;
-  font-family: 'Roboto', sans-serif;
-  color: #333;
+  display: block; /* Default display property */
+  justify-content: center; /* Center content horizontally (often used with flexbox) */
+  padding: 40px; /* Space inside the body */
+  background-color: #efeaff; /* Light background color for light mode */
+  font-family: 'Roboto', sans-serif; /* Font family for text */
+  color: #333; /* Text color */
 }
 
+/* Light mode styling for the body */
 body.light-mode {
-  background-color: #efeaff;
-  color: #333;
+  background-color: #efeaff; /* Light background color */
+  color: #333; /* Dark text color */
 }
 
+/* Dark mode styling for the body */
 body.dark-mode {
-  background-color: #50577A;
-  color: #50577A;
+  background-color: #50577A; /* Dark background color */
+  color: #50577A; /* Text color matches background (which may be unintended; usually text color is lighter in dark mode) */
 }
 
-
+/* Styling for the header element */
 header {
-  padding: 25px;
-  background-color: rgb(47, 41, 82);
-  font-size: 25px;
-  height: 40px;
-  width: 100%;
-  padding-left: 0; 
-  position: fixed;
-  top: 0;
-  left: 0%;
-  display:flex;
-  justify-content: space-between; 
+  padding: 25px; /* Space inside the header */
+  background-color: rgb(47, 41, 82); /* Dark background color */
+  font-size: 25px; /* Font size for text */
+  height: 40px; /* Height of the header */
+  width: 100%; /* Full width of the viewport */
+  padding-left: 0; /* No padding on the left */
+  position: fixed; /* Fixed position to stay at the top */
+  top: 0; /* Align to the top */
+  left: 0%; /* Align to the left */
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space items evenly */
 }
 
+/* Container for login and registration buttons */
 .login-register-container {
-  display: flex;
+  display: flex; /* Flexbox layout */
 }
 
+/* Styling for dark mode theme */
 .dark-mode {
-  background-color:#212124;
-  color: white;
+  background-color: #212124; /* Dark background color */
+  color: white; /* White text color */
 }
 
+/* Styling for the theme toggle button */
 #toggle-theme-btn {
-  background-color: rgb(64, 54, 121);
-  border: none;
-  cursor: pointer;
-  padding: 10px; 
-  font-size: 18px;
-  border-radius: 5px;
-  width: auto; 
-  margin-bottom: 10px; 
-  display: flex;
-  align-items: center; 
-  justify-content: flex-start;
+  background-color: rgb(64, 54, 121); /* Dark background color */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor to indicate clickability */
+  padding: 10px; /* Space inside the button */
+  font-size: 18px; /* Font size for text */
+  border-radius: 5px; /* Rounded corners */
+  width: auto; /* Automatic width based on content */
+  margin-bottom: 10px; /* Space below the button */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  justify-content: flex-start; /* Align items to the start */
 }
 
+/* Styling for the image inside the theme toggle button */
 #toggle-theme-btn img {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px; 
+  width: 40px; /* Width of the image */
+  height: 40px; /* Height of the image */
+  margin-right: 10px; /* Space to the right of the image */
 }
 
+/* Styling for the text inside the theme toggle button */
 #button-text {
-  margin-left: 5px;
-  color: white;
-  font-size: 22px;
-  font-family:'Roboto', sans-serif;
+  margin-left: 5px; /* Space to the left of the text */
+  color: white; /* White text color */
+  font-size: 22px; /* Font size for text */
+  font-family: 'Roboto', sans-serif; /* Font family for text */
 }
 
+/* Hover effect for the button text */
 #button-text:hover {
-  color: rgb(150, 233, 198);
+  color: rgb(150, 233, 198); /* Change text color on hover */
 }
 
-#LoginButton{
-  background-color:rgb(33, 25, 81);
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  margin-left: auto; 
-  margin-right: 5px;
-  border-radius: 20px;
+/* Styling for the login button */
+#LoginButton {
+  background-color: rgb(33, 25, 81); /* Dark background color */
+  font-size: 20px; /* Font size for text */
+  cursor: pointer; /* Pointer cursor to indicate clickability */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Space inside the button */
+  border: none; /* No border */
+  margin-left: auto; /* Push to the right side */
+  margin-right: 5px; /* Space to the right of the button */
+  border-radius: 20px; /* Rounded corners */
 }
 
-#LoginButton:hover{
-  background-color:  #4c4670;
+/* Hover effect for the login button */
+#LoginButton:hover {
+  background-color: #4c4670; /* Change background color on hover */
 }
 
-#RegisterButton{
-  background-color:rgb(33, 25, 81);
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  margin-right: 10px;
-  border-radius: 20px;
+/* Styling for the registration button */
+#RegisterButton {
+  background-color: rgb(33, 25, 81); /* Dark background color */
+  font-size: 20px; /* Font size for text */
+  cursor: pointer; /* Pointer cursor to indicate clickability */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Space inside the button */
+  border: none; /* No border */
+  margin-right: 10px; /* Space to the right of the button */
+  border-radius: 20px; /* Rounded corners */
 }
 
-#RegisterButton:hover{
-  background-color:  #4c4670;
+/* Hover effect for the registration button */
+#RegisterButton:hover {
+  background-color: #4c4670; /* Change background color on hover */
 }
 
-#LogoutButton{
-  background-color:rgb(33, 25, 81);
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  margin-right: 10px;
-  border-radius: 20px;
+/* Styling for the logout button */
+#LogoutButton {
+  background-color: rgb(33, 25, 81); /* Dark background color */
+  font-size: 20px; /* Font size for text */
+  cursor: pointer; /* Pointer cursor to indicate clickability */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Space inside the button */
+  border: none; /* No border */
+  margin-right: 10px; /* Space to the right of the button */
+  border-radius: 20px; /* Rounded corners */
 }
 
-#LogoutButton:hover{
-   background-color:  #4c4670;
+/* Hover effect for the logout button */
+#LogoutButton:hover {
+   background-color: #4c4670; /* Change background color on hover */
 }

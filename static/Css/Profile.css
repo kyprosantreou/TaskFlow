@@ -1,198 +1,224 @@
+/* Body styling */
 body {
-    height: 100vh; 
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    margin: 0; 
-    caret-color: black; 
-    margin-bottom: auto;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0; /* Remove default margin */
+    caret-color: black; /* Black text cursor (caret) */
+    margin-bottom: auto; /* Ensure no extra space at the bottom */
 }
 
+/* Dark mode styling for the body */
 body.dark-mode {
-  background-color: #50577A;
-  color: white;
+  background-color: #50577A; /* Dark blue background */
+  color: white; /* White text color */
 }
 
+/* Light mode styling for the body */
 body.light-mode {
-  background-color: #efeaff;
-  color: #333;
+  background-color: #efeaff; /* Light purple background */
+  color: #333; /* Dark gray text color */
 }
 
+/* Header styling */
 header {
-    padding: 25px;
-    background-color: rgb(47, 41, 82);
-    font-size: 25px;
-    height: 40px;
-    width: 100%;
-    padding-left: 0; 
-    position: fixed;
-    top: 0;
-    left: 0%;
-    display:flex;
-    justify-content: space-between; 
-  }
+    padding: 25px; /* Space inside header */
+    background-color: rgb(47, 41, 82); /* Dark purple background */
+    font-size: 25px; /* Font size */
+    height: 40px; /* Fixed height */
+    width: 100%; /* Full width */
+    padding-left: 0; /* Remove left padding */
+    position: fixed; /* Fixed position at the top */
+    top: 0; /* Top edge */
+    left: 0%; /* Left edge */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between items */
+}
 
+/* Dark mode styling for general elements */
 .dark-mode {
-    background-color:#212124;
-    color: white;
+    background-color: #212124; /* Dark background */
+    color: white; /* White text color */
 }
 
+/* Toggle theme button styling */
 #toggle-theme-btn {
-    background-color: rgb(64, 54, 121);
-    border: none;
-    cursor: pointer;
-    padding: 10px; 
-    font-size: 18px;
-    border-radius: 5px;
-    width: auto; 
-    margin-bottom: 10px; 
-    display: flex;
-    align-items: center; 
-    justify-content: flex-start;
+    background-color: rgb(64, 54, 121); /* Dark blue background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px; /* Space inside button */
+    font-size: 18px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    width: auto; /* Auto width */
+    margin-bottom: 10px; /* Space below button */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Align items to the start */
 }
-  
+
+/* Styling for the image inside the toggle theme button */
 #toggle-theme-btn img {
-width: 40px;
-height: 40px;
-margin-right: 10px; 
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    margin-right: 10px; /* Space to the right of the image */
 }
 
+/* Hover effect for button text */
 #button-text:hover {
-    color: rgb(150, 233, 198);
+    color: rgb(150, 233, 198); /* Change text color on hover */
 }
 
-h2{
-    text-decoration: underline;
+/* Heading 2 styling */
+h2 {
+    text-decoration: underline; /* Underline text */
 }
 
+/* Button text styling */
 #button-text {
-margin-left: 5px;
-color: white;
-font-size: 22px;
-font-family:'Roboto', sans-serif;
+    margin-left: 5px; /* Space to the left of the text */
+    color: white; /* White text color */
+    font-size: 22px; /* Font size */
+    font-family: 'Roboto', sans-serif; /* Font family */
 }
 
+/* Container styling to center content */
 .container {
-    display: flex;
-    justify-content: center; 
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
 }
 
+/* Account settings styling */
 .account-settings {
-    padding: 20px;
-    max-width: 400px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px; 
-    font-weight: 600;
+    padding: 20px; /* Space inside container */
+    max-width: 400px; /* Maximum width */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
 }
 
+/* Upload button styling */
 .upload-button {
-    cursor: pointer;
-    color: #000000;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px; 
-    font-weight: 600;
-    border-radius: 10px;
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #000000; /* Black text color */
+    margin-top: 10px; /* Space above button */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    font-weight: 600; /* Bold text */
+    border-radius: 10px; /* Rounded corners */
 }
 
+/* Styling for form group labels */
 .form-group label {
-    margin-bottom: 5px;
-    display: block;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px; 
-    font-weight: 600;
-    text-decoration: underline;
+    margin-bottom: 5px; /* Space below label */
+    display: block; /* Block-level element */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
+    text-decoration: underline; /* Underline text */
 }
 
+/* Styling for form group inputs */
 .form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 4px ;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    width: 100%; /* Full width */
+    padding: 10px; /* Space inside input */
+    font-size: 16px; /* Font size */
+    border: 4px; /* Border width (should specify color) */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below input */
 }
 
+/* Common button styling */
 .delete-account,
 .submit {
-    background-color: #4ff7a3;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
+    background-color: #4ff7a3; /* Light green background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Space inside button */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-right: 10px; /* Space to the right of the button */
 }
 
+/* Specific styling for delete account button */
 .delete-account {
-    background-color: #ff4d4d;
+    background-color: #ff4d4d; /* Red background */
 }
 
+/* Hover effect for delete account button */
 .delete-account:hover {
-    background-color: #e60000;
+    background-color: #e60000; /* Darker red on hover */
 }
 
+/* Hover effect for submit button */
 .submit:hover {
-    background-color: #00ff15;
+    background-color: #00ff15; /* Brighter green on hover */
 }
 
+/* Form group styling */
 .form-group {
-    position: relative;
+    position: relative; /* Relative positioning for child elements */
 }
 
+/* Password wrapper styling */
 .password-wrapper {
-    position: relative;
+    position: relative; /* Relative positioning for child elements */
 }
 
+/* Styling for password input field */
 #change-password {
-    width: calc(100% - 40px); 
-    padding-right: 50px;  
+    width: calc(100% - 40px); /* Full width minus space for toggle button */
+    padding-right: 50px; /* Space for toggle button */
 }
 
+/* Toggle password visibility button styling */
 .toggle-password {
-    position: absolute;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-80%);
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    background-image: url('../Assets/eye.svg'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    border: none;
-    padding: 0;
-    outline: none; 
+    position: absolute; /* Absolute positioning within .password-wrapper */
+    right: 0px; /* Distance from the right edge */
+    top: 50%; /* Vertical center alignment */
+    transform: translateY(-80%); /* Adjust vertical position */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 25px; /* Width of the icon */
+    height: 25px; /* Height of the icon */
+    background-image: url('../Assets/eye.svg'); /* Background image for the icon */
+    background-size: contain; /* Fit the icon within the button */
+    background-repeat: no-repeat; /* No repeat for the icon */
+    background-color: #ffffff; /* White background for the button */
+    border: none; /* No border */
+    padding: 0; /* Remove padding */
+    outline: none; /* Remove outline */
 }
 
-#downloadDataBtn{
-    background-color: rgb(144, 77, 165);
-    color: #fff;
-    border: none;
-    padding:12px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
+/* Download data button styling */
+#downloadDataBtn {
+    background-color: rgb(144, 77, 165); /* Purple background */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    padding: 12px; /* Space inside button */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-#downloadDataBtn:hover{
-    background-color: rgb(152, 32, 189);
+/* Hover effect for download data button */
+#downloadDataBtn:hover {
+    background-color: rgb(152, 32, 189); /* Brighter purple on hover */
 }
 
-
-#LogoutButton{
-  background-color:rgb(33, 25, 81);
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  margin-right: 10px;
-  border-radius: 20px;
+/* Logout button styling */
+#LogoutButton {
+  background-color: rgb(33, 25, 81); /* Dark blue background */
+  font-size: 20px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Space inside button */
+  border: none; /* No border */
+  margin-right: 10px; /* Space to the right of the button */
+  border-radius: 20px; /* Rounded corners */
 }
 
-#LogoutButton:hover{
-   background-color:  #4c4670;
+/* Hover effect for logout button */
+#LogoutButton:hover {
+   background-color: #4c4670; /* Lighter dark blue on hover */
 }

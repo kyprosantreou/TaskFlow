@@ -1,66 +1,75 @@
+/* Styling for the sidebar container */
 .sidebar {
-  height: 100%; 
-  width: 0;
-  position: fixed; 
-  z-index: 1;
-  top: 0px;
-  left: 0px;
-  background-color: rgb(64, 54, 121);
-  overflow-x: hidden;
-  padding-top: 60px; 
-  transition: 0.5s;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 10px;
+  height: 100%; /* Full height of the viewport */
+  width: 0; /* Initially hidden (collapsed) */
+  position: fixed; /* Fixed position to stay in place */
+  z-index: 1; /* Ensure it is above other content */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  background-color: rgb(64, 54, 121); /* Dark background color */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  padding-top: 60px; /* Space from the top */
+  transition: 0.5s; /* Smooth transition for width change */
+  border-top-left-radius: 0px; /* No rounding on the top left corner */
+  border-top-right-radius: 10px; /* Rounded top right corner */
 }
 
+/* Styling for links inside the sidebar */
 .sidebar a {
-    padding: 10px 15px;
-    font-size: 22px;
-    color: white;
-    text-decoration: none;
-    display: block;
-    font-family: 'Roboto', sans-serif;
+    padding: 10px 15px; /* Space inside the link */
+    font-size: 22px; /* Font size for links */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Block display for full-width clickable area */
+    font-family: 'Roboto', sans-serif; /* Font style */
 }
 
+/* Hover effect for sidebar links */
 .sidebar a:hover {
-  color: rgb(150, 233, 198);
+  color: rgb(150, 233, 198); /* Change text color on hover */
 }
 
+/* Styling for the close button in the sidebar */
 .sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  position: absolute; /* Position absolute to place it within the sidebar */
+  top: 0; /* Align to the top */
+  right: 25px; /* Space from the right edge */
+  font-size: 36px; /* Large font size for the close icon */
+  margin-left: 50px; /* Space to the left of the close button */
 }
 
+/* Styling for the open button (used to open the sidebar) */
 .openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color:rgb(47, 41, 82);
-  color: white;
-  padding: 5px 15px;
-  border: none;
-  border-radius: 20px;
+  font-size: 20px; /* Font size for the button */
+  cursor: pointer; /* Pointer cursor to indicate clickability */
+  background-color: rgb(47, 41, 82); /* Dark background color */
+  color: white; /* White text color */
+  padding: 5px 15px; /* Space inside the button */
+  border: none; /* Remove border */
+  border-radius: 20px; /* Rounded corners */
 }
 
+/* Hover effect for the open button */
 .openbtn:hover {
-  background-color: #4c4670;
+  background-color: #4c4670; /* Change background color on hover */
 }
 
+/* Styling for the main content area that shifts with the sidebar */
 #main {
-  transition: margin-left .5s; 
-  padding: 20px;
+  transition: margin-left .5s; /* Smooth transition for margin change */
+  padding: 20px; /* Space inside the main content */
 }
 
+/* Styling for images inside the sidebar links */
 .sidebar a img {
-    width: 30px; 
-    height: 30px; 
-    margin-right: 10px;
-    background-color: rgb(64, 54, 121);
+    width: 30px; /* Width of the image */
+    height: 30px; /* Height of the image */
+    margin-right: 10px; /* Space to the right of the image */
+    background-color: rgb(64, 54, 121); /* Background color matching the sidebar */
 }
 
-#profile{
-  margin-top: 10px;
-  background-color: rgb(64, 54, 121);
+/* Styling for the profile section in the sidebar */
+#profile {
+  margin-top: 10px; /* Space from the top of the sidebar */
+  background-color: rgb(64, 54, 121); /* Dark background color */
 }

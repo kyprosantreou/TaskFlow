@@ -1,391 +1,436 @@
- body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #efeaff;
+/* General body styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Font family for the entire page */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #efeaff; /* Light purple background color */
 }
 
+/* Light mode styling */
 body.light-mode {
-  background-color: #efeaff;
-  color: #333;
+  background-color: #efeaff; /* Light purple background */
+  color: #333; /* Dark text color for better readability */
 }
 
+/* Dark mode styling */
 body.dark-mode {
-  background-color: #50577A;
-  color: #50577A;
+  background-color: #50577A; /* Dark blue background */
+  color: #50577A; /* Dark text color */
 }
 
+/* Header styling */
 header {
-    padding: 25px;
-    background-color: rgb(47, 41, 82);
-    font-size: 25px;
-    height: 40px;
-    width: 100%;
-    padding-left: 0; 
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0%;
-    display:flex;
-    justify-content: space-between;
+    padding: 25px; /* Space inside the header */
+    background-color: rgb(47, 41, 82); /* Dark purple background */
+    font-size: 25px; /* Font size for the header text */
+    height: 40px; /* Height of the header */
+    width: 100%; /* Full width of the container */
+    padding-left: 0; /* Remove left padding */
+    align-items: center; /* Center items vertically */
+    position: fixed; /* Fixed position at the top of the page */
+    top: 0; /* Position at the top */
+    left: 0%; /* Align to the left */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space out items */
 }
 
-
+/* Dark mode header styling */
 .dark-mode {
-    background-color:#212124;
-    color: white;
+    background-color: #212124; /* Dark background color */
+    color: white; /* White text color */
 }
 
+/* Theme toggle button styling */
 #toggle-theme-btn {
-    background-color: rgb(64, 54, 121);
-    border: none;
-    cursor: pointer;
-    padding: 10px; 
-    font-size: 18px;
-    border-radius: 5px;
-    width: auto; 
-    margin-bottom: 10px; 
-    display: flex;
-    align-items: center; 
-    justify-content: flex-start;
-
+    background-color: rgb(64, 54, 121); /* Dark purple background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px; /* Space inside the button */
+    font-size: 18px; /* Font size of the button text */
+    border-radius: 5px; /* Rounded corners */
+    width: auto; /* Width adjusts to content */
+    margin-bottom: 10px; /* Bottom margin */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
 }
 
+/* Text inside the toggle button */
 #button-text {
-    margin-left: 5px;
-    color: white;
-    font-size: 22px;
-    font-family:'Roboto', sans-serif;
+    margin-left: 5px; /* Space between the image and text */
+    color: white; /* White text color */
+    font-size: 22px; /* Font size of the button text */
+    font-family: 'Roboto', sans-serif; /* Font family */
 }
-  
+
+/* Image inside the toggle button */
 #toggle-theme-btn img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px; 
+    width: 40px; /* Width of the image */
+    height: 40px; /* Height of the image */
+    margin-right: 10px; /* Space between image and text */
 }
 
+/* Hover effect for button text */
 #button-text:hover {
-    color: rgb(150, 233, 198);
+    color: rgb(150, 233, 198); /* Change text color on hover */
 }
-  
+
+/* Board container styling */
 .board {
-    display: flex;
-    margin-bottom:auto; 
-    margin-top: 80px;
+    display: flex; /* Flexbox layout for columns */
+    margin-bottom: auto; /* Space below the board */
+    margin-top: 80px; /* Space above the board */
 }
 
+/* Column styling */
 .column {
-    flex: 1;
-    padding: 20px;
+    flex: 1; /* Flexible width */
+    padding: 20px; /* Space inside the column */
 }
 
+/* Header styling for each column */
 .column-header-todo {
-    background-color: rgb(70, 176, 252);
-    color: white;
-    padding: 10px;
-    border-radius: 5px 5px 0 0;
-    text-align: center;
+    background-color: rgb(70, 176, 252); /* Light blue background */
+    color: white; /* White text color */
+    padding: 10px; /* Space inside the header */
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    text-align: center; /* Center text horizontally */
 }
 
 .column-header-inprogress {
-    background-color: rgb(133, 118, 255);
-    color: white;
-    padding: 10px;
-    border-radius: 5px 5px 0 0;
-    text-align: center;
+    background-color: rgb(133, 118, 255); /* Light purple background */
+    color: white; /* White text color */
+    padding: 10px; /* Space inside the header */
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    text-align: center; /* Center text horizontally */
 }
 
 .column-header-done {
-    background-color: rgb(76, 221, 156);
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    border-radius: 5px 5px 0 0;
-    text-align: center;
+    background-color: rgb(76, 221, 156); /* Light green background */
+    color: rgb(255, 255, 255); /* White text color */
+    padding: 10px; /* Space inside the header */
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    text-align: center; /* Center text horizontally */
 }
 
 .column-header-assigned {
-    background-color: rgb(185, 88, 194);
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    border-radius: 5px 5px 0 0;
-    text-align: center;
+    background-color: rgb(185, 88, 194); /* Light pink background */
+    color: rgb(255, 255, 255); /* White text color */
+    padding: 10px; /* Space inside the header */
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    text-align: center; /* Center text horizontally */
 }
 
+/* Styling for task containers */
 .tasks {
-    background-color: #dbdbdb;
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    min-height: 100px;
-    margin-top: 10px;
-} 
+    background-color: #dbdbdb; /* Light gray background */
+    padding: 10px; /* Space inside the task container */
+    border-radius: 0 0 5px 5px; /* Rounded bottom corners */
+    min-height: 100px; /* Minimum height of the container */
+    margin-top: 10px; /* Space above the task container */
+}
 
+/* Styling for the "Add Task" button */
 .add-task {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
 }
 
 .add-task button {
-    background-color: transparent;
-    border: none;
-    padding: 20px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-size: cover;
-    background-position: center;
-    background-image: url('../Assets/add.png');
-    transition: background-color 0.3s ease;
+    background-color: transparent; /* No background color */
+    border: none; /* No border */
+    padding: 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    font-size: 16px; /* Font size of the button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 50%; /* Round button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    background-size: cover; /* Cover background image */
+    background-position: center; /* Center background image */
+    background-image: url('../Assets/add.png'); /* Background image */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
 .add-task button:hover {
-    background-color: rgb(150, 233, 198);
+    background-color: rgb(150, 233, 198); /* Light green background on hover */
 }
 
+/* Task styling */
 .task {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    background-color: white; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 10px; /* Space inside the task */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 5px; /* Space below each task */
 }
 
+/* Hover effect for tasks */
 .task:hover {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Light gray background on hover */
 }
 
+/* Modal styling */
 .modal {
-    display: none;
-    position:fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); 
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    z-index: 1; /* Display above other content */
+    left: 0; /* Align to the left */
+    top: 0; /* Align to the top */
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    overflow: auto; /* Enable scrolling if necessary */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
+/* Modal content styling */
 .modal-content {
-    background-color: rgb(222, 255, 251);
-    margin: auto; 
-    margin-top: 10%; 
-    padding: 20px;
-    border: 1px solid #000000;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: underline;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color:black
+    background-color: rgb(222, 255, 251); /* Light teal background */
+    margin: auto; /* Center horizontally */
+    margin-top: 10%; /* Margin from the top */
+    padding: 20px; /* Space inside the modal */
+    border: 1px solid #000000; /* Black border */
+    width: 80%; /* Width of the modal */
+    max-width: 500px; /* Maximum width */
+    border-radius: 20px; /* Rounded corners */
+    text-align: center; /* Center text horizontally */
+    text-decoration: underline; /* Underlined text */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 18px; /* Font size of the modal text */
+    font-weight: 600; /* Bold text */
+    color: black; /* Black text color */
 }
 
+/* Textarea inside modal */
 .modal-content textarea {
-    width: 500px; 
-    height: 100px; 
-    resize: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 400; 
-    background-color:rgb(238, 247, 255);
+    width: 500px; /* Width of the textarea */
+    height: 100px; /* Height of the textarea */
+    resize: none; /* Disable resizing */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 14px; /* Font size of the textarea text */
+    font-weight: 400; /* Normal text weight */
+    background-color: rgb(238, 247, 255); /* Light blue background */
 }
 
-.modal-content input[type="text"]{
-    width: 300px;
-    height: 20px;
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    background-color:rgb(238, 247, 255);
+/* Text input inside modal */
+.modal-content input[type="text"] {
+    width: 300px; /* Width of the text input */
+    height: 20px; /* Height of the text input */
+    border-radius: 5px; /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 14px; /* Font size of the text input text */
+    font-weight: 400; /* Normal text weight */
+    background-color: rgb(238, 247, 255); /* Light blue background */
 }
 
+/* Submit button inside modal */
 .modal-content input[type="submit"] {
-    background-color: rgb(76, 221, 156);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin-top: 20px; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: rgb(76, 221, 156); /* Light green background */
+    border: none; /* No border */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline-block display */
+    font-size: 18px; /* Font size of the button text */
+    margin-top: 20px; /* Space above the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
+/* Hover effect for submit button */
 .modal-content input[type="submit"]:hover {
-    background-color: rgb(25, 243, 152);
+    background-color: rgb(25, 243, 152); /* Lighter green background on hover */
 }
 
+/* Close button styling in the modal */
 .close {
-    color: rgb(223, 245, 255);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: rgb(223, 245, 255); /* Light blue color */
+    float: right; /* Align to the right */
+    font-size: 28px; /* Font size */
+    font-weight: bold; /* Bold text */
 }
+
+/* Hover effect for close button */
 .close:hover,
 .close:focus {
-    color: rgb(255, 83, 83);
-    text-decoration: none;
-    cursor: pointer;
+    color: rgb(255, 83, 83); /* Red color on hover/focus */
+    text-decoration: none; /* No text decoration */
+    cursor: pointer; /* Pointer cursor on hover/focus */
 }
 
+/* Edit button styling */
 .edit-btn {
-    background-color: rgb(76, 221, 156); 
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 5px; 
-    cursor: pointer;
-    border-radius: 20px;
+    background-color: rgb(76, 221, 156); /* Light green background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size of the button text */
+    margin-right: 5px; /* Space to the right of the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 20px; /* Rounded corners */
 }
 
+/* Hover effect for edit button */
 .edit-btn:hover {
-    background-color:rgb(25, 243, 152); 
+    background-color: rgb(25, 243, 152); /* Lighter green background on hover */
 }
+
+/* Delete button styling */
 .delete-btn {
-    background-color: #fa4e42;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 20px;
+    background-color: #fa4e42; /* Red background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size of the button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 20px; /* Rounded corners */
 }
 
+/* Hover effect for delete button */
 .delete-btn:hover {
-    background-color: #ff1100;
+    background-color: #ff1100; /* Darker red background on hover */
 }
 
-.move-to-in-progress-btn{
-    background-color: rgb(97, 159, 196);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 5px; 
-    cursor: pointer;
-    border-radius: 20px;
-}
-.move-to-in-progress-btn:hover{
-    background-color: rgb(59, 178, 247);
+/* Move to In Progress button styling */
+.move-to-in-progress-btn {
+    background-color: rgb(97, 159, 196); /* Light blue background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size of the button text */
+    margin-right: 5px; /* Space to the right of the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 20px; /* Rounded corners */
 }
 
-.move-to-done-btn{
-    background-color: rgb(97, 159, 196);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 5px; 
-    cursor: pointer;
-    border-radius: 20px;
+/* Hover effect for Move to In Progress button */
+.move-to-in-progress-btn:hover {
+    background-color: rgb(59, 178, 247); /* Lighter blue background on hover */
 }
 
-.move-to-done-btn:hover{
-    background-color: rgb(59, 178, 247);
+/* Move to Done button styling */
+.move-to-done-btn {
+    background-color: rgb(97, 159, 196); /* Light blue background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size of the button text */
+    margin-right: 5px; /* Space to the right of the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 20px; /* Rounded corners */
 }
 
+/* Hover effect for Move to Done button */
+.move-to-done-btn:hover {
+    background-color: rgb(59, 178, 247); /* Lighter blue background on hover */
+}
+
+/* Button styling for edit and delete actions */
 .edit-btn,
 .delete-btn {
-    display: inline-block; 
-    vertical-align: top; 
-    margin-right: 5px; 
-    margin-bottom: 5px; 
+    display: inline-block; /* Inline-block display */
+    vertical-align: top; /* Align with the top */
+    margin-right: 5px; /* Space to the right of the button */
+    margin-bottom: 5px; /* Space below the button */
 }
 
+/* Button styling for move actions */
 .move-to-done-btn,
 .move-to-in-progress-btn {
-    display: inline-block;
-    vertical-align: top; 
-    margin-bottom: 5px; 
+    display: inline-block; /* Inline-block display */
+    vertical-align: top; /* Align with the top */
+    margin-bottom: 5px; /* Space below the button */
 }
 
+/* Task date styling */
 .task-date {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px; 
-    color: #000000; 
-    margin-top: 5px;
-    display: block; 
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    color: #000000; /* Black text color */
+    margin-top: 5px; /* Space above the date */
+    display: block; /* Block display */
 }
 
-
-.move-to-assign-btn{
-    background-color: rgb(181, 85, 160);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 5px; 
-    cursor: pointer;
-    border-radius: 20px;
-}
-.move-to-assign-btn:hover{
-    background-color: rgb(250, 0, 196);
+/* Move to Assign button styling */
+.move-to-assign-btn {
+    background-color: rgb(181, 85, 160); /* Light pink background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Space inside the button */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* No text decoration */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size of the button text */
+    margin-right: 5px; /* Space to the right of the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 20px; /* Rounded corners */
 }
 
+/* Hover effect for Move to Assign button */
+.move-to-assign-btn:hover {
+    background-color: rgb(250, 0, 196); /* Darker pink background on hover */
+}
+
+/* Close button styling */
 .close {
-    color: #b74646;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #b74646; /* Red color */
+    float: right; /* Align to the right */
+    font-size: 28px; /* Font size */
+    font-weight: bold; /* Bold text */
 }
 
+/* Hover effect for close button */
 .close:hover,
 .close:focus {
-    color: rgb(255, 0, 0);
-    text-decoration: none;
-    cursor: pointer;
+    color: rgb(255, 0, 0); /* Red color on hover/focus */
+    text-decoration: none; /* No text decoration */
+    cursor: pointer; /* Pointer cursor on hover/focus */
 }
 
+/* User list styling */
 #userList {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
 }
 
+/* User list item styling */
 #userList li {
-    cursor: pointer;
-    padding: 5px;
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 5px; /* Space inside list items */
 }
 
+/* Hover effect for user list items */
 #userList li:hover {
-    background-color: #ddd;
-} 
-
-#LogoutButton{
-  background-color:rgb(33, 25, 81);
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  margin-right: 10px;
-  border-radius: 20px;
+    background-color: #ddd; /* Light gray background on hover */
 }
 
-#LogoutButton:hover{
-   background-color:  #4c4670;
+/* Logout button styling */
+#LogoutButton {
+  background-color: rgb(33, 25, 81); /* Dark purple background */
+  font-size: 20px; /* Font size of the button text */
+  cursor: pointer; /* Pointer cursor on hover */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Space inside the button */
+  border: none; /* No border */
+  margin-right: 10px; /* Space to the right of the button */
+  border-radius: 20px; /* Rounded corners */
+}
+
+/* Hover effect for logout button */
+#LogoutButton:hover {
+   background-color: #4c4670; /* Lighter purple background on hover */
 }

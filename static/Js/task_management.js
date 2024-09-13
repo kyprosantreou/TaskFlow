@@ -1,27 +1,33 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Get references to DOM elements for the task modal and its components
     var modal = document.getElementById("taskModal");
     var btn = document.getElementById("openModalBtn");
     var span = document.getElementsByClassName("close")[0];
     var titleInput = document.getElementById("taskTitle");
     var contentInput = document.getElementById("taskContent");
 
+    // Show the task modal and reset input fields when the button is clicked
     btn.onclick = function() {
         modal.style.display = "block";
         titleInput.value = "";
         contentInput.value = "";
-    }
+    };
 
+    // Hide the task modal when the close button is clicked
     span.onclick = function() {
         modal.style.display = "none";
-    }
+    };
 
+    // Initialize references and event handlers for the edit modal
     var editModal = document.getElementById("editModal");
     var editCloseBtn = document.getElementById("editCloseBtn");
 
+    // Hide the edit modal when the close button is clicked
     editCloseBtn.onclick = function() {
         editModal.style.display = "none";
-    }
+    };
 
+    // Hide modals when clicking outside of them
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -30,8 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (event.target == assignModal) {
             closeAssignModal();
         }
-    }
+    };
 
+    // Function to add a button to mark a task as "In Progress"
     function addMoveToInProgressButton(task) {
         var button = document.createElement("button");
         button.textContent = "Mark as In Progress";
@@ -64,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         task.appendChild(button);
     }
     
-
+    // Function to move a task to the "In Progress" column
     function moveTaskToInProgress(task) {
         var inProgressColumn = document.getElementById("inProgress");
         task.querySelector(".move-to-in-progress-btn").remove();
@@ -72,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         inProgressColumn.appendChild(task);
     }
 
+    // Function to add a button to mark a task as "Done"
     function addMoveToDoneButton(task) {
         var button = document.createElement("button");
         button.textContent = "Mark as Done";
@@ -101,14 +109,14 @@ document.addEventListener("DOMContentLoaded", function() {
         task.appendChild(button);
     }
 
+    // Function to move a task to the "Done" column
     function moveTaskToDone(task) {
         var doneColumn = document.getElementById("done");
         task.querySelector(".move-to-done-btn").remove();
         doneColumn.appendChild(task);
     }
-
-
     
+    // Function to add a button to assign a task
     function addMoveToAssignButton(task) {
         var button = document.createElement("button");
         button.textContent = "Assign to";
@@ -119,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
         task.appendChild(button);
     }
 
-
+    // Function to open the assign modal
     function openAssignModal(task) {
         var assignModal = document.getElementById("assignModal");
         assignModal.task = task;
@@ -137,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
         taskTitleElement.value = title; 
     }
 
-    
+    // Function to display error messages in the assign modal
     function showAssignErrorMessage(message) {
         var errorMsg = document.getElementById("assignErrorMsg");
         if (!errorMsg) {
@@ -150,62 +158,63 @@ document.addEventListener("DOMContentLoaded", function() {
         errorMsg.textContent = message;
     }
     
-      var assignModal = document.getElementById("assignModal");
-      var assignModalCloseBtn = document.querySelector("#assignModal .close");
-  
-      
-      function closeAssignModal() {
-          assignModal.style.display = "none"; 
-      }
-  
-      
-      assignModalCloseBtn.onclick = closeAssignModal;
-  
-      
-      window.onclick = function(event) {
-          if (event.target === assignModal) {
-              closeAssignModal();
-          }
-      }
-
-    document.getElementById("assignTaskForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
+    // Get references and event handlers for the assign modal
     var assignModal = document.getElementById("assignModal");
-    var task = assignModal.task;
+    var assignModalCloseBtn = document.querySelector("#assignModal .close");
+  
+    // Close the assign modal when the close button is clicked
+    function closeAssignModal() {
+        assignModal.style.display = "none"; 
+    }
 
-    var title = task.querySelector("h3").textContent;
-    var username = document.getElementById("assignUsername").value;
-
-    console.log("Assigning task '" + title + "' to " + username);
-
-    fetch('/assign_to', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            task_id: task.getAttribute('data-id'),
-            username: username,
-            title: title 
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            updateTaskAssignedTo(task, username);
+    // Close the assign modal when clicking outside of it
+    assignModalCloseBtn.onclick = closeAssignModal;
+  
+    window.onclick = function(event) {
+        if (event.target === assignModal) {
             closeAssignModal();
-        } else {
-            showAssignErrorMessage(data.error || 'An error occurred');
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        showAssignErrorMessage('An error occurred while assigning the task. Please try again.');
-    });
-});
+    }
 
-    
+    // Handle the submission of the assign task form
+    document.getElementById("assignTaskForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        var assignModal = document.getElementById("assignModal");
+        var task = assignModal.task;
+
+        var title = task.querySelector("h3").textContent;
+        var username = document.getElementById("assignUsername").value;
+
+        console.log("Assigning task '" + title + "' to " + username);
+
+        fetch('/assign_to', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                task_id: task.getAttribute('data-id'),
+                username: username,
+                title: title 
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateTaskAssignedTo(task, username);
+                closeAssignModal();
+            } else {
+                showAssignErrorMessage(data.error || 'An error occurred');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showAssignErrorMessage('An error occurred while assigning the task. Please try again.');
+        });
+    });
+
+    // Function to search users based on the query
     function searchUsers() {
         var query = document.getElementById("assignUsername").value;
         fetch(`/search_users?query=${query}`)
@@ -222,6 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error:', error));
     }
 
+    // Function to update the assigned user text in the task
     function updateTaskAssignedTo(task, username) {
         var assignedText = task.querySelector("p:last-child");
         if (assignedText) {
@@ -230,11 +240,11 @@ document.addEventListener("DOMContentLoaded", function() {
             var span = document.createElement("span");
             span.textContent = "Assigned To: " + username;
             span.classList.add("task-assigned");
-            
+            task.appendChild(span);
         }
     }
 
-
+    // Function to add creation date and time to the task
     function addCreationDateTime(task) {
         var dateTime = new Date().toLocaleString();
         var span = document.createElement("span");
@@ -243,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
         task.appendChild(span);
     }
 
+    // Handle the submission of the task form
     document.getElementById("taskForm").addEventListener("submit", function(event) {
         event.preventDefault();
         var title = titleInput.value;
@@ -271,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Error:', error));
     });
 
+    // Function to open the edit modal and pre-fill with task details
     function openEditModal(task, title, content) {
         var editModal = document.getElementById("editModal");
         var editTitleInput = document.getElementById("editTaskTitle");
@@ -284,6 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
         editModal.style.display = "block";
     }
 
+    // Handle the submission of the edit task form
     document.getElementById("editTaskForm").addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -319,14 +332,14 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Error:', error));
     });
 
-
-
-    function createTaskElement(id, title, content, status, createdAt, assigned_to,username) {
+    // Function to create a task element and append buttons based on status
+    function createTaskElement(id, title, content, status, createdAt, assigned_to, username) {
         var task = document.createElement("div");
         task.classList.add("task");
         task.setAttribute("data-id", id);
         task.innerHTML = `<h3>${title}</h3><p>${content}</p><p><small>Created At: ${createdAt}</small></p><p><small>Created from: ${username}</small></p><p><small>Assigned To: ${assigned_to}</small></p>`;
     
+        // Add edit and delete buttons to the task element
         var editBtn = document.createElement("button");
         editBtn.textContent = "Edit Task";
         editBtn.classList.add("edit-btn");
@@ -361,6 +374,7 @@ document.addEventListener("DOMContentLoaded", function() {
         };
         task.appendChild(deleteBtn);
     
+        // Add buttons based on the task status
         if (status === 'todo') {
             addMoveToInProgressButton(task);
             addMoveToAssignButton(task);
@@ -372,6 +386,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return task;
     }
     
+    // Function to search tasks based on title and status
     function searchTasks() {
         var title = searchTitle.value;
         var status = searchStatus.value;
@@ -401,14 +416,16 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error:', error));
     }
 
+    // Attach the search function to the search button
     searchBtn.onclick = searchTasks;
 
+    // Function to load all tasks and append them to the appropriate columns
     function loadTasks() {
         fetch('/tasks')
             .then(response => response.json())
             .then(data => {
                 data.forEach(task => {
-                    var taskElement = createTaskElement(task.id, task.title, task.content, task.status, task.created_at,task.assigned_to,task.username);
+                    var taskElement = createTaskElement(task.id, task.title, task.content, task.status, task.created_at, task.assigned_to, task.username);
                     if (task.status === 'todo') {
                         document.getElementById("todo").appendChild(taskElement);
                     } else if (task.status === 'inprogress') {
@@ -421,5 +438,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error fetching tasks:', error));
     }
 
+    // Load tasks when the page loads
     loadTasks();
 });

@@ -1,134 +1,151 @@
+/* Body styling */
 body {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(33, 25, 81) 0%, rgb(131, 111, 255) 50%, rgb(33, 25, 81) 105%);
-    caret-color: transparent; 
+    background: rgb(2,0,36); /* Fallback color for older browsers */
+    background: linear-gradient(90deg, rgb(33, 25, 81) 0%, rgb(131, 111, 255) 50%, rgb(33, 25, 81) 105%); /* Gradient background from dark to light blue and back */
+    caret-color: transparent; /* Hide text cursor (caret) */
 }
 
+/* Ensure full height and center content */
 html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
+/* Container styling to center content */
 .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
+
+/* Card styling for the main content */
 .card {
-    background-color: rgb(240, 243, 255);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width:400px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    caret-color: transparent; 
+    background-color: rgb(240, 243, 255); /* Light background color for card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 400px; /* Fixed width */
+    max-width: 600px; /* Maximum width */
+    margin: 0 auto; /* Center card horizontally */
+    padding: 20px; /* Padding inside the card */
+    caret-color: transparent; /* Hide text cursor (caret) */
 }
 
+/* Header styling */
 h1 {
-    text-align: center;
-    color: #000000;
-    margin-bottom: 30px;
-    font-family: 'Roboto', sans-serif;
+    text-align: center; /* Center text horizontally */
+    color: #000000; /* Black text color */
+    margin-bottom: 30px; /* Space below header */
+    font-family: 'Roboto', sans-serif; /* Font family */
 }
 
+/* Password input container */
 .password-input {
-    position: relative;
+    position: relative; /* Relative positioning for child elements */
 }
 
+/* Styling for input fields */
 .password-input input {
-    padding-right: 30px;
+    padding-right: 30px; /* Space for toggle button */
 }
 
+/* Toggle password visibility button */
 .toggle-password {
-    position: absolute;
-    right: 5px;
-    top: 35%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    background-image: url('../Assets/eye.svg'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    border: none;
-    padding: 0;
-    outline: none; 
+    position: absolute; /* Absolute positioning within .password-input */
+    right: 5px; /* Distance from the right edge */
+    top: 35%; /* Vertical center alignment */
+    transform: translateY(-50%); /* Center vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 25px; /* Width of the icon */
+    height: 25px; /* Height of the icon */
+    background-image: url('../Assets/eye.svg'); /* Background image for the icon */
+    background-size: contain; /* Fit the icon within the button */
+    background-repeat: no-repeat; /* No repeat for the icon */
+    background-color: #ffffff; /* White background for the button */
+    border: none; /* No border */
+    padding: 0; /* Remove padding */
+    outline: none; /* Remove outline */
 }
 
+/* Styling for text and password inputs */
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
-    caret-color: black;
+    width: 100%; /* Full width */
+    padding: 10px; /* Space inside input */
+    margin-bottom: 20px; /* Space below input */
+    border: 1px solid #dddddd; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in width/height */
+    color: #000000; /* Black text color */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    caret-color: black; /* Black text cursor (caret) */
 }
 
+/* Label styling */
 label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px; 
-    font-weight: 600;
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
 }
 
+/* Submit button styling */
 input[type="submit"] {
-    background-color: rgb(55, 181, 182);
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s;
+    background-color: rgb(55, 181, 182); /* Light turquoise background */
+    color: #ffffff; /* White text color */
+    padding: 10px 20px; /* Space inside button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Full width */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
+/* Hover effect for submit button */
 input[type="submit"]:hover {
-    background-color: rgb(21, 245, 186);
+    background-color: rgb(21, 245, 186); /* Lighter turquoise background on hover */
 }
 
+/* Styling for the "Remember me" and "Forgot password" labels */
 label[for="rememberMe"] {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    color: #000000;
-    font-weight: 200;
-    text-decoration: underline;
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    color: #000000; /* Black text color */
+    font-weight: 200; /* Light text weight */
+    text-decoration: underline; /* Underlined text */
 }
 
+/* Styling for the remember me and forgot password section */
 .rememberMe-forgotPassword {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    color: #000000;
-    font-weight: 200;
-    text-decoration: underline; 
-    cursor: pointer;
-    margin-bottom: 10px;
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space out items */
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    color: #000000; /* Black text color */
+    font-weight: 200; /* Light text weight */
+    text-decoration: underline; /* Underlined text */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 10px; /* Space below section */
 }
 
+/* Styling for forgot password link */
 #forgot-password {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    color: #000000;
-    font-weight: 200;
-    text-decoration: underline; 
-    cursor: pointer;
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    color: #000000; /* Black text color */
+    font-weight: 200; /* Light text weight */
+    text-decoration: underline; /* Underlined text */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-#validationMessage{
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+/* Validation message styling */
+#validationMessage {
+    font-family: 'Roboto', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
 }
