@@ -223,7 +223,7 @@ def get_tasks():
             'content': task[2],
             'status': task[3],
             'created_at': task[4].strftime("%Y-%m-%d %H:%M:%S"),
-            'assigned_to': task[5],
+            'assigned_to': task[5]if task[5] is not None else "-",
             'assigned': task[6],
             'username': task[7]
         })
@@ -305,7 +305,7 @@ def search_tasks():
             'content': task[2],
             'status': task[3],
             'created_at': task[4].strftime("%Y-%m-%d %H:%M:%S"),
-            'assigned_to': task[5],
+            'assigned_to': task[5] if task[5] is not None else "-",
             'assigned': task[6],
             'username': task[7]
         })
