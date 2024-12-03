@@ -46,5 +46,9 @@ TaskFlow is a Dockerized web-based task management application designed to simpl
     ```
     http://127.0.0.1:5000
     ```
+## Collaborators 
+- [Kypros Andreou](https://github.com/kyprosantreou)
+- [Eleni Giannouchou](https://github.com/ElenaGiannouchou)
+- [Panayiotis Kleanthous](https://github.com/KPanais)
 
 ---
