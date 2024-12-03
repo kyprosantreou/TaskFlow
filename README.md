@@ -33,8 +33,8 @@ TaskFlow is a Dockerized web-based task management application designed to simpl
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/taskflow.git
-    cd taskflow
+    https://github.com/kyprosantreou/TaskFlow.git
+    cd TaskFlow
     ```
 
 2. Build and start the Docker containers:
